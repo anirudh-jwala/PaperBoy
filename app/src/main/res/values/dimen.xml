@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_padding">16dp</dimen>
+    <dimen name="secondary_linear">8dp</dimen>
+    <dimen name="divider">0dp</dimen>
+    <dimen name="image_margin">64dp</dimen>
+
+    <dimen name="author_font">14sp</dimen>
+    <dimen name="section_font">12sp</dimen>
+    <dimen name="title_font">16sp</dimen>
+</resources>
