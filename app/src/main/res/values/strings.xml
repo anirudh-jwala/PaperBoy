@@ -1,28 +1,9 @@
 <resources>
     <string name="app_name">Paper Boy</string>
-    <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->
+
     <string name="no_news">Something went wrong,\n please try again.</string>
 
-    <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No Wi-Fi detected.\n Turn on Wi-Fi to establish a connection</string>
-    <string name="settings_menu_item">Settings</string>
-    <string name="settings_title">News Settings</string>
 
-    <string name="settings_topic_news_label">Topic News</string>
-    <string name="settings_topic_news_key" translatable="false">Topic News</string>
-    <string name="settings_topic_news_default" translatable="false">soccer</string>
-
-    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
-    <string name="settings_order_by_label">Order By</string>
-    <string name="settings_order_by_key" translatable="false">order_by</string>
-    <string name="settings_order_by_default" translatable="false">newest</string>
-
-    <!-- Label for order-by magnitude option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_relevance_label">Relevance</string>
-    <string name="settings_order_by_relevance_value" translatable="false">relevance</string>
-
-    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_most_recent_label">Most Recent</string>
-    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
     <string name="paper_boy">Paper Boy</string>
 </resources>
