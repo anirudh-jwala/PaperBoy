@@ -45,7 +45,7 @@ public final class QueryUtils {
         try {
             url = new URL(stringUrl);
         } catch (MalformedURLException e){
-            Log.e(LOG_TAG, "Problem bulding the URL", e);
+            Log.e(LOG_TAG, "Problem building the URL", e);
         }
         return url;
     }
@@ -130,7 +130,7 @@ public final class QueryUtils {
                     JSONObject contributorTag = (JSONObject) tags.get(0);
                     contributor = contributorTag.getString("webTitle");
                 }else {
-                    contributor = "unknown author";
+                    contributor = "Anonymous";
                 }
                 News news = new News(title, section, url, contributor, date);
                 theNews.add(news);

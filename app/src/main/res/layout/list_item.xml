@@ -4,17 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="@dimen/dim_16">
 
     <TextView
-        android:id="@+id/title_textview"
-        style="@style/TextViews"
+        android:id="@+id/story_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ellipsize="end"
         android:gravity="left"
         android:maxLines="2"
         android:textColor="@color/textColorNewsTitle"
-        android:textSize="@dimen/title_font"
-        tools:text="The Fiver | Inter Miami and the fearsome heron" />
+        android:textSize="@dimen/dim_18_sp"
+        android:typeface="serif"
+        android:textStyle="bold"
+        tools:text="The Top story of the day, Elon Musk shares views on the future of Industry" />
 
 
     <LinearLayout
@@ -22,38 +25,44 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingBottom="@dimen/secondary_linear"
-        android:paddingTop="@dimen/secondary_linear">
+        android:paddingBottom="@dimen/dim_8"
+        android:paddingTop="@dimen/dim_8">
 
         <TextView
-            android:id="@+id/section_textview"
-            style="@style/TextViews"
+            android:id="@+id/section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
             android:textAllCaps="true"
             android:textColor="@color/textColorNewsSection"
-            android:textSize="@dimen/section_font"
+            android:textSize="@dimen/dim_12_sp"
+            android:typeface="normal"
             tools:text="Section: Football" />
 
         <TextView
-            android:id="@+id/date_textview"
-            style="@style/TextViews"
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
-            android:paddingStart="@dimen/main_padding"
+            android:paddingStart="@dimen/dim_16"
             android:textAllCaps="true"
             android:textColor="@color/textColorNewsSection"
-            android:textSize="@dimen/section_font"
+            android:textSize="@dimen/dim_12_sp"
+            android:typeface="sans"
             tools:text="09/11/2018" />
 
         <TextView
-            android:id="@+id/author_textview"
-            style="@style/TextViews"
-            android:paddingStart="@dimen/main_padding"
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dim_16"
             android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/author_font"
+            android:textSize="@dimen/dim_14_sp"
+            android:typeface="serif"
             tools:text="by: Author" />
     </LinearLayout>
 </LinearLayout>

@@ -16,8 +16,6 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Check if there is an existing list item view (called convertView) that we can reuse,
-        // otherwise, if convertView is null, then inflate a new list item layout.
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
@@ -25,19 +23,24 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
 
         News currentNews = getItem(position);
-        TextView titleView = listItemView.findViewById(R.id.title_textview);
+
+        TextView titleView = listItemView.findViewById(R.id.story_title);
         titleView.setText(currentNews.getTitle());
-        TextView sectionView = listItemView.findViewById(R.id.section_textview);
-        String section = "Section: " + currentNews.getSection();
+        TextView sectionView = listItemView.findViewById(R.id.section);
+
+        String section = "Category: " + currentNews.getSection();
         sectionView.setText(section);
+
         String fullDate = currentNews.getDate();
         String shortDate = fullDate.substring(0,10);
-        TextView dateView = listItemView.findViewById(R.id.date_textview);
+
+        TextView dateView = listItemView.findViewById(R.id.date);
         dateView.setText(shortDate);
+
         String author = "By: " + currentNews.getAuthor();
-        TextView authorView = listItemView.findViewById(R.id.author_textview);
+        TextView authorView = listItemView.findViewById(R.id.author);
         authorView.setText(author);
-        // Return the list item view that is now showing the appropriate data
+
         return listItemView;
     }
 }

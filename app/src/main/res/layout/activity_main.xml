@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="10.0sp"
+        android:dividerHeight="12.0sp"
         android:orientation="vertical" />
 
     <LinearLayout
-        android:id="@+id/empty_view"
+        android:id="@+id/sub_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:paddingLeft="@dimen/dim_16"
+        android:paddingRight="@dimen/dim_16">
 
         <ImageView
-            android:id="@+id/empty_image"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:paddingBottom="8dp" />
+            android:id="@+id/no_data_image"
+            android:layout_width="@dimen/dim_64"
+            android:layout_height="@dimen/dim_64"
+            android:paddingBottom="@dimen/dim_8" />
 
         <TextView
-            android:id="@+id/empty_text"
+            android:id="@+id/no_data_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -37,7 +37,7 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/loading_indicator"
+        android:id="@+id/progression"
         style="@style/Widget.AppCompat.ProgressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
