@@ -124,7 +124,9 @@ public final class QueryUtils {
                 String url = currentNews.getString("webUrl");
                 String date = currentNews.getString("webPublicationDate");
                 JSONArray tags = currentNews.getJSONArray("tags");
-                String thumbnail = currentNews.getString("thumbnail");
+
+                JSONObject currentFields = currentNews.optJSONObject("fields");
+                String thumbnail = currentFields.getString("thumbnail");
 
                 String contributor = null;
 
