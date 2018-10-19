@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -35,7 +37,7 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         // Need to add ImageView
         ImageView imageView = listItemView.findViewById(R.id.thumbnail);
-        
+        Glide.with(imageView).load(currentNews.getThumbnail()).into(imageView);
 
         TextView titleView = listItemView.findViewById(R.id.story_title);
         titleView.setText(currentNews.getTitle());
