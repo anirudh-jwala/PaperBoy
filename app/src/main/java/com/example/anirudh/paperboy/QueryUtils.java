@@ -124,6 +124,8 @@ public final class QueryUtils {
                 String url = currentNews.getString("webUrl");
                 String date = currentNews.getString("webPublicationDate");
                 JSONArray tags = currentNews.getJSONArray("tags");
+                String thumbnail = currentNews.getString("thumbnail");
+
                 String contributor = null;
 
                 if (tags.length() == 1) {
@@ -132,7 +134,7 @@ public final class QueryUtils {
                 }else {
                     contributor = "Anonymous";
                 }
-                News news = new News(title, section, url, contributor, date);
+                News news = new News(thumbnail, title, section, url, contributor, date);
                 theNews.add(news);
             }
 

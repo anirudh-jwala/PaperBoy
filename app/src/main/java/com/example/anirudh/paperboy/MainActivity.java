@@ -6,13 +6,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 
 
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -26,13 +30,36 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<List<News>> {
 
-    private static final String GUARDIANS_REQUEST_URL = "http://content.guardianapis.com/search?section=technology&show-tags=contributor&format=json&lang=en&order-by=newest&show-fields=thumbnail&page-size=200&api-key=a453017b-6b96-4c3f-834d-e9569f4f0444";
+    private static final String GUARDIANS_REQUEST_URL = "http://content.guardianapis.com/search?section=technology&show-tags=contributor&format=json&lang=en&order-by=newest&show-fields=thumbnail&page-size=25&api-key=a453017b-6b96-4c3f-834d-e9569f4f0444";
     private static final int NEWS_LOADER_ID = 1;
 
     private NewsAdapter mAdapter;
     private LinearLayout mEmptyStateLinear;
     private TextView mEmptyStateTextView;
     private ImageView mEmptyStateImageView;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.item_settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        getLoaderManager().restartLoader(1, null, this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
