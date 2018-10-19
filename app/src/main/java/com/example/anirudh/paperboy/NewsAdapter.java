@@ -33,6 +33,8 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         News currentNews = getItem(position);
 
+        // Need to add ImageView
+
         TextView titleView = listItemView.findViewById(R.id.story_title);
         titleView.setText(currentNews.getTitle());
 
