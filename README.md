@@ -1,5 +1,5 @@
 # Paper Boy
-## News App Stage 1
+## News App Stage 1 & Stage 2
 
 ### Backstory: 
                This is the age of information, we live around data. Past in time, at home I was forced to read news papers that come early in
