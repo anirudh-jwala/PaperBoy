@@ -7,7 +7,7 @@
     <string name="settings_title">News Settings</string>
     <string name="settings_page_size_label">Page Size</string>
     <string name="settings_page_size_key" translatable="false">page-size</string>
-    <string name="settings_page_size_default" translatable="false">10</string>
+    <string name="settings_page_size_default" translatable="false">25</string>
     <string name="settings_order_by_label">Order By</string>
     <string name="settings_order_by_key" translatable="false">order-by</string>
     <string name="settings_order_by_default" translatable="false">@string/settings_order_by_newest_value</string>
@@ -15,4 +15,11 @@
     <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
     <string name="settings_order_by_newest_label">Newest</string>
     <string name="settings_order_by_newest_value" translatable="false">newest</string>
+
+    <string name="query_string_show_fields">show-fields</string>
+    <string name="query_string_show_tags">show-tags</string>
+    <string name="query_string_page_size">page-size</string>
+    <string name="query_parameter_thumbnail">thumbnail</string>
+    <string name="query_parameter_contributor">contributor</string>
+    <string name="query_string_order_by">order-by</string>
 </resources>

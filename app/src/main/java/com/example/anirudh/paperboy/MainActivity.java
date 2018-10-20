@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements LoaderCallbacks<List<News>> {
 
-    private static final String GUARDIANS_REQUEST_URL = "http://content.guardianapis.com/search?section=technology&show-tags=contributor&format=json&lang=en&order-by=newest&show-fields=thumbnail&page-size=25&api-key=a453017b-6b96-4c3f-834d-e9569f4f0444";
+    private static final String GUARDIANS_REQUEST_URL = "http://content.guardianapis.com/search?api-key=a453017b-6b96-4c3f-834d-e9569f4f0444";
     private static final int NEWS_LOADER_ID = 1;
 
     private NewsAdapter mAdapter;
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     @Override
     protected void onStart() {
         super.onStart();
-        getLoaderManager().restartLoader(1, null, this);
+        getLoaderManager().restartLoader(NEWS_LOADER_ID, null, this);
     }
 
     @Override
@@ -108,7 +108,20 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
     @Override
     public Loader<List<News>> onCreateLoader(int i, Bundle bundle) {
-        return new NewsLoader(this, GUARDIANS_REQUEST_URL);
+        //creating sharedPreferences object and get default values like page size and order by setting
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String pageSize = sharedPreferences.getString(getString(R.string.settings_page_size_key), getString(R.string.settings_page_size_default));
+        String orderBy = sharedPreferences.getString(getString(R.string.settings_order_by_key), getString(R.string.settings_order_by_default));
+
+        Uri baseUri = Uri.parse(GUARDIANS_REQUEST_URL);
+        Uri.Builder builder = baseUri.buildUpon();
+
+        builder.appendQueryParameter(getString(R.string.query_string_show_fields), getString(R.string.query_parameter_thumbnail));
+        builder.appendQueryParameter(getString(R.string.query_string_order_by), orderBy);
+        builder.appendQueryParameter(getString(R.string.query_string_show_tags), getString(R.string.query_parameter_contributor));
+        builder.appendQueryParameter(getString(R.string.query_string_page_size), pageSize);
+
+        return new NewsLoader(this, builder.toString());
     }
 
     @Override
@@ -127,14 +140,20 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
         mAdapter.clear();
+        //notify about the data changed
+        mAdapter.notifyDataSetChanged();
 
         if (theNews != null && !theNews.isEmpty()) {
             mAdapter.addAll(theNews);
+            //notify about the data changed
+            mAdapter.notifyDataSetChanged();
         }
     }
 
     @Override
     public void onLoaderReset(Loader<List<News>> loader) {
         mAdapter.clear();
+        //notify about the data changed
+        mAdapter.notifyDataSetChanged();
     }
 }

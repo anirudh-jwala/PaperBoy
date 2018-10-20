@@ -32,7 +32,7 @@ public final class QueryUtils {
 
         try {
             jsonResponse = makeHttpRequest(url);
-        } catch (IOException e){
+        } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
@@ -44,7 +44,7 @@ public final class QueryUtils {
         URL url = null;
         try {
             url = new URL(stringUrl);
-        } catch (MalformedURLException e){
+        } catch (MalformedURLException e) {
             Log.e(LOG_TAG, "Problem building the URL", e);
         }
         return url;
@@ -103,9 +103,9 @@ public final class QueryUtils {
         return output.toString();
     }
 
-    private static List<News> extractFeatureFromJson(String newsJSON){
+    private static List<News> extractFeatureFromJson(String newsJSON) {
 
-        if (TextUtils.isEmpty(newsJSON)){
+        if (TextUtils.isEmpty(newsJSON)) {
             return null;
         }
 
@@ -118,6 +118,8 @@ public final class QueryUtils {
 
             for (int i = 0; i < newsArray.length(); i++) {
 
+                //create string variable for thumbnail
+                String thumbnail = "";
                 JSONObject currentNews = newsArray.getJSONObject(i);
                 String title = currentNews.getString("webTitle");
                 String section = currentNews.getString("sectionName");
@@ -126,14 +128,17 @@ public final class QueryUtils {
                 JSONArray tags = currentNews.getJSONArray("tags");
 
                 JSONObject currentFields = currentNews.optJSONObject("fields");
-                String thumbnail = currentFields.getString("thumbnail");
+
+                if (currentFields != null) {
+                    thumbnail = currentFields.getString("thumbnail");
+                }
 
                 String contributor = null;
 
                 if (tags.length() == 1) {
                     JSONObject contributorTag = (JSONObject) tags.get(0);
                     contributor = contributorTag.getString("webTitle");
-                }else {
+                } else {
                     contributor = "Anonymous";
                 }
                 News news = new News(thumbnail, title, section, url, contributor, date);
